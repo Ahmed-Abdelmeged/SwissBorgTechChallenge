@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ahmedabdelmeged.swissborg.btcusd.viewmodel.MainViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:id="@+id/lastPriceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_small"
+                        android:text="@{@string/btc_usd_last_price(viewModel.ticker.lastPrice)}"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Last price: 2145.12" />
+
+                    <TextView
+                        android:id="@+id/changeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding_small"
+                        android:paddingEnd="@dimen/padding_small"
+                        android:text="@{@string/btc_usd_change(viewModel.ticker.change)}"
+                        android:textSize="@dimen/text_size_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lastPriceTextView"
+                        tools:text="Change: 2145.12" />
+
+                    <TextView
+                        android:id="@+id/volumeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/padding_small"
+                        android:paddingEnd="@dimen/padding_small"
+                        android:text="@{@string/btc_usd_volume(viewModel.ticker.volume)}"
+                        android:textSize="@dimen/text_size_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/changeTextView"
+                        tools:text="Volume: 21445455.12" />
+
+                    <TextView
+                        android:id="@+id/highTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/padding_small"
+                        android:layout_marginTop="@dimen/padding_small"
+                        android:layout_marginBottom="@dimen/padding_small"
+                        android:layout_weight="1"
+                        android:text="@{@string/btc_usd_high(viewModel.ticker.high)}"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/text_size_medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/lowTextView"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/volumeTextView"
+                        tools:text="High: 6541.34" />
+
+                    <TextView
+                        android:id="@+id/lowTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/padding_small"
+                        android:layout_marginTop="@dimen/padding_small"
+                        android:layout_marginBottom="@dimen/padding_small"
+                        android:layout_weight="1"
+                        android:text="@{@string/btc_usd_low(viewModel.ticker.low)}"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/text_size_medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/highTextView"
+                        app:layout_constraintTop_toBottomOf="@+id/volumeTextView"
+                        tools:text="Low: 1211.42" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_small">
+
+                <!-- Card title -->
+                <TextView
+                    android:id="@+id/orderBookTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_small"
+                    android:text="@string/order_book"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Bids Section -->
+                <TextView
+                    android:id="@+id/orderBooksBidsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_small"
+                    android:text="@string/order_book_bids"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintEnd_toStartOf="@+id/orderBooksAsksTextView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderBookTextView" />
+
+                <TextView
+                    android:id="@+id/bidsAmountTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.orderBook.bidsAmount}"
+                    app:layout_constraintEnd_toStartOf="@+id/bidsPriceTextView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/orderBooksBidsTextView"
+                    tools:text="0.25154" />
+
+                <TextView
+                    android:id="@+id/bidsPriceTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.orderBook.bidsPrice}"
+                    android:textColor="@color/green"
+                    app:layout_constraintEnd_toStartOf="@+id/asksPriceTextView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/bidsAmountTextView"
+                    app:layout_constraintTop_toBottomOf="@id/orderBooksBidsTextView"
+                    tools:text="5124.25" />
+
+                <!-- Asks Section -->
+                <TextView
+                    android:id="@+id/orderBooksAsksTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_small"
+                    android:text="@string/order_book_asks"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/orderBooksBidsTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/orderBookTextView" />
+
+                <TextView
+                    android:id="@+id/asksPriceTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.orderBook.asksPrice}"
+                    android:textColor="@color/red"
+                    app:layout_constraintEnd_toStartOf="@+id/asksAmountTextView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/bidsPriceTextView"
+                    app:layout_constraintTop_toBottomOf="@id/orderBooksAsksTextView"
+                    tools:text="5011.3" />
+
+                <TextView
+                    android:id="@+id/asksAmountTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:layout_marginEnd="@dimen/padding_small"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.orderBook.asksAmount}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/asksPriceTextView"
+                    app:layout_constraintTop_toBottomOf="@id/orderBooksAsksTextView"
+                    tools:text="12.25154" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

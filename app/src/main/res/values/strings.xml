@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">SwissBorg BTC/USD</string>
+
+    <string name="btc_usd_last_price">Last price: %f</string>
+    <string name="btc_usd_change">Change: %f</string>
+    <string name="btc_usd_volume">Volume: %f</string>
+    <string name="btc_usd_high">High: %f</string>
+    <string name="btc_usd_low">Low: %f</string>
+
+    <string name="order_book">Book</string>
+    <string name="order_book_bids">Bids</string>
+    <string name="order_book_asks">Asks</string>
+
+    <string name="format_number">%f</string>
+
+</resources>

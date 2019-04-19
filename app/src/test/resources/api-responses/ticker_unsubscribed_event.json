@@ -1,0 +1,6 @@
+{
+  "event": "unsubscribed",
+  "channel": "ticker",
+  "chanId": 20,
+  "pair": "BTCUSD"
+}

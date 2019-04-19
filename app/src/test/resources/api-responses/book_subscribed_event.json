@@ -1,0 +1,9 @@
+{
+  "event": "subscribed",
+  "channel": "book",
+  "chanId": 20,
+  "prec": "P0",
+  "freq": "F1",
+  "len": "25",
+  "pair": "BTCUSD"
+}
